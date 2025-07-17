@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 function EventForm({ onAdd }) {
   const [form, setForm] = useState({
     eventname: "",
@@ -81,11 +82,10 @@ function EventForm({ onAdd }) {
       />{" "}
       <button
         type="submit"
-        className="bg-blue-600 text-white py-2 px-4 rounded"
+        className="bg-blue-600 text-black py-2 px-4 rounded"
       >
-        {""}
-        Add Event{""}
-      </button>{""}
+        Add Event
+      </button>
     </form>
   );
 }

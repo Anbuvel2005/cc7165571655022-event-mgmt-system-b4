@@ -20,7 +20,7 @@ const dummyEvents = [
     year: "2026",
   },
   {
-    id: 1,
+    id: 3,
     eventname: "Thalapathy's CM swearing",
     location: "kanyakumari",
     time: "8.00am",
@@ -29,7 +29,7 @@ const dummyEvents = [
     year: "2026",
   },
   {
-    id: 2,
+    id: 4,
     eventname: "Thalapathy's Road Show",
     location: "GangaiKondaCholapuram",
     time: "9.00am",
