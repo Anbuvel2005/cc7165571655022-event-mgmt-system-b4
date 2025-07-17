@@ -81,8 +81,9 @@ function EventForm({ onAdd }) {
       />{" "}
       <button
         type="submit"
-        className="bg-blue-400 text-white py-2 px-4 rounded"
-      >{""}
+        className="bg-blue-600 text-white py-2 px-4 rounded"
+      >
+        {""}
         Add Event{""}
       </button>{""}
     </form>
