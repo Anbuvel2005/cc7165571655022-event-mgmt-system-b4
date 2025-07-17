@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
-import AddStudent from './pages/AddStudent';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import AddEvent from "./pages/AddEvent";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <nav className="w-full bg-white shadow mb-8">
           <div className="max-w-5xl mx-auto flex justify-between items-center px-6 py-4">
             <h1 className="text-2xl font-bold text-gray-800">
-              Student Management System
+              Event Management System
             </h1>
             <div className="space-x-6">
               <Link
@@ -22,16 +22,16 @@ function App() {
                 to="/add"
                 className="text-blue-600 hover:text-blue-800 font-medium transition-colors"
               >
-                Add Student
+                Add Event
               </Link>
             </div>
           </div>
         </nav>
-        <main className='flex-1 flex justify-center items-start'>
-          <div className='w-full max-w-5xl bg-white rounded-lg shadow p-8 mt-8'>
+        <main className="flex-1 flex justify-center items-start">
+          <div className="w-full max-w-5xl bg-white rounded-lg shadow p-8 mt-8">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/add" element={<AddStudent />} />
+              <Route path="/add" element={<AddEvent />} />
             </Routes>
           </div>
         </main>
