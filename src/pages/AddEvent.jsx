@@ -4,10 +4,10 @@ import EventForm from "../components/EventForm";
 function AddEvent() {
   const navigate = useNavigate();
 
-  const handleAdd = (event) => {
-    const existing = JSON.parse(localStorage.getItem("events")) || [];
-    const updated = [...existing, event];
-    localStorage.setItem("events", JSON.stringify(updated));
+  const handleAdd = (Event) => {
+    const existing = JSON.parse(localStorage.getItem("Events")) || [];
+    const updated = [...existing, Event];
+    localStorage.setItem("Events", JSON.stringify(updated));
     navigate("/");
   };
 

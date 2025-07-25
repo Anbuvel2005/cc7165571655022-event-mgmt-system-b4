@@ -1,90 +1,71 @@
-import { useState } from "react";
-import React from "react";
-function EventForm({ onAdd }) {
+import { useState, useEffect } from "react";
+function EventForm({ onAdd, initialData }) {
   const [form, setForm] = useState({
     eventname: "",
-    location: "",
+    venue: "",
     time: "",
     date: "",
-    year: "",
   });
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!form.name || !form.roll)
-      return alert("EventName & Location are required");
-    onAdd({ ...form, id: Date.now() });
-    setForm({
-      eventname: "",
-      location: "",
-      time: "",
-      date: "",
-      month: "",
-      year: "",
-    });
+    if (!form.eventname || !form.venue)
+      return alert("EventName & Venue are required");
+    onAdd({ ...form, id: initialData?.id || Date.now() });
+    setForm({ eventname: "", venue: "", time: "", date: "" });
   };
+
+  useEffect(() => {
+    if (initialData) setForm(initialData);
+  }, [initialData]);
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-gray-400 p-6 shadow-md rounded-xl max-w-md mx-auto"
+      className="bg-gray-800 p-6 shadow-md rounded-xl max-w-md mx-auto"
     >
       {" "}
-      <h2 className="text-xl font-semibold  mb-4">Add New Event</h2>{" "}
+      <h2 className="text-xl font-semibold mb-4">
+        {initialData ? "Edit Event" : "Add New Event"}
+      </h2>
       <input
         className="w-full p-2 border mb-3"
         type="text"
         name="eventname"
-        placeholder="eventname"
-        value={form.eventname}
+        placeholder="EventName"
+        value={form.name}
         onChange={handleChange}
       />{" "}
       <input
         className="w-full p-2 border mb-3"
         type="text"
-        name="location"
-        placeholder="location"
-        value={form.location}
+        name="venue"
+        placeholder="Venue"
+        value={form.venue}
         onChange={handleChange}
       />{" "}
       <input
         className="w-full p-2 border mb-3"
         type="number"
         name="time"
-        placeholder="time"
+        placeholder="Time"
         value={form.time}
         onChange={handleChange}
       />{" "}
       <input
         className="w-full p-2 border mb-3"
-        type="number"
+        type="text"
         name="date"
         placeholder="date"
         value={form.date}
         onChange={handleChange}
       />{" "}
-      <input
-        className="w-full p-2 border mb-3"
-        type="text"
-        name="month"
-        placeholder="month"
-        value={form.month}
-        onChange={handleChange}
-      />{" "}
-      <input
-        className="w-full p-2 border mb-3"
-        type="number"
-        name="year"
-        placeholder="year"
-        value={form.year}
-        onChange={handleChange}
-      />{" "}
       <button
         type="submit"
-        className="bg-blue-600 text-black py-2 px-4 rounded"
+        className="bg-blue-600 text-white py-2 px-4 rounded"
       >
-        Add Event
+        {initialData ? "Edit Event" : "Add New Event"}
       </button>
     </form>
   );

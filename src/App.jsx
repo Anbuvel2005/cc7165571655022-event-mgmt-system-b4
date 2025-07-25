@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import AddEvent from "./pages/AddEvent";
+import EditEvent from "./components/EditEvent";
+
+
 
 function App() {
   return (
@@ -8,7 +11,7 @@ function App() {
       <div className="min-h-screen flex flex-col bg-gray-50">
         <nav className="w-full bg-white shadow mb-8">
           <div className="max-w-5xl mx-auto flex justify-between items-center px-6 py-4">
-            <h1 className="text-2xl font-bold text-gray-800">
+            <h1 className="text-2xl font-bold  text-gray-800">
               Event Management System
             </h1>
             <div className="space-x-6">
@@ -32,6 +35,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/add" element={<AddEvent />} />
+              <Route path="/edit/:id" element={<EditEvent />} />
             </Routes>
           </div>
         </main>
